@@ -1,0 +1,4 @@
+darkBlue #0f3057
+medBlue #00587a
+lightBlue #008891
+cream #e7e7de
