@@ -64,7 +64,7 @@ const Navbar = (props) => {
       <Title>Learning Journal</Title>
       <div className='nav-buttons'>
         <Btn onClick={handleOpen} className='nav-button'>Login</Btn>
-        <Btn className='nav-button'>Logout</Btn>
+        <Btn onClick={props.clearToken} className='nav-button'>Logout</Btn>
       </div>
       <Modal
         className={classes.modal}

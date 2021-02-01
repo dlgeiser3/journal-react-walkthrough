@@ -16,6 +16,7 @@ function App() {
   const clearToken = () => {
     localStorage.clear();
     setSessionToken('');
+    console.log(`CLEAR TOKEN: ${sessionToken}`)
   }
   const updateToken = (newToken) => {
     localStorage.setItem('token', newToken);
