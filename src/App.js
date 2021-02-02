@@ -2,6 +2,9 @@ import './App.css';
 import React, {useState, useEffect} from 'react';
 
 import Navbar from './Components/Navbar/Navbar';
+import Post from './Components/Home/Post';
+import ToggleDisplay from './Components/Home/ToggleDisplay';
+import Display from './Components/Home/Display'
 
 function App() {
 
@@ -28,6 +31,9 @@ function App() {
   return (
     <div className="App">
       <Navbar token={sessionToken} clearToken={clearToken} updateToken={updateToken}/>
+      <Post />
+      <ToggleDisplay />
+      <Display />
     </div>
   );
 }

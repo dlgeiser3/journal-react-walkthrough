@@ -47,7 +47,7 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(4),
     outline: 'none',
   }
-  
+
 }));
 
 const Navbar = (props) => {
@@ -63,6 +63,8 @@ const Navbar = (props) => {
     <Nav>
       <Title>Learning Journal</Title>
       <div className='nav-buttons'>
+        <Btn className='nav-button'>Home</Btn>
+        <Btn className='nav-button'>Profile</Btn>
         <Btn onClick={handleOpen} className='nav-button'>Login</Btn>
         <Btn onClick={props.clearToken} className='nav-button'>Logout</Btn>
       </div>
