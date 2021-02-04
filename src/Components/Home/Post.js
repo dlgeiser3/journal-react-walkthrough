@@ -7,7 +7,7 @@ import Container from '@material-ui/core/Container';
 const useStyles = makeStyles(() => ({
 
   button: {
-    marginTop: "20px",
+    marginTop: "10px",
     width: "10%",
     backgroundColor: '#00587a',
     color: 'white',
@@ -18,7 +18,7 @@ const useStyles = makeStyles(() => ({
   },
 
   input: {
-    marginTop: "50px",
+    marginTop: "100px",
     width: "80%",
   }
 

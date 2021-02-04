@@ -9,10 +9,10 @@ import IconButton from '@material-ui/core/IconButton';
 const useStyles = makeStyles(() => ({
 
   wrapper: {
-    margin: "50px",
+    margin: "50px auto 80px",
     display: "flex",
     flexDirection : "row",
-    justifyContent: "space-around",
+    justifyContent: "space-evenly",
   },
   search: {
     display: "flex",
@@ -33,11 +33,10 @@ const useStyles = makeStyles(() => ({
   button: {
     backgroundColor: '#00587a',
     color: 'white',
-    width: "10%",
+    width: "150px",
     fontWeight: 700,
     marginTop: "3px",
     marginLeft: "5px",
-    padding: "5px",
     '&:hover': {
       backgroundColor: '#008891',
     }
@@ -58,8 +57,8 @@ const Post = (props) => {
   return (
     <Container className={classes.wrapper}>
       <div className={classes.search}>
-      <TextField label="Search" variant="outlined" size="small" defaultValue="Small" className={classes.input} />
-      <IconButton type="submit" size="small" className={classes.searchButton}><SearchIcon/></IconButton>
+      <TextField label="Search" variant="outlined" size="small" defaultValue="Title Search" className={classes.input} />
+      <IconButton type="submit" className={classes.searchButton}><SearchIcon/></IconButton>
       </div>
       <Button className={classes.button}>Get All</Button>
     </Container>

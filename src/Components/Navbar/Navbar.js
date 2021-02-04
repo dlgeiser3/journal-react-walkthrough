@@ -1,7 +1,11 @@
 import React from 'react';
-import styled from 'styled-components';
+// import styled from 'styled-components';
 import './Navbar.css';
 import { makeStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
 import Modal from '@material-ui/core/Modal';
 import Auth from '../Auth/Auth'
 
@@ -16,28 +20,32 @@ function getModalStyle() {
   };
 }
 
-const Nav = styled.nav`
-  width: 100%;
-  height: 50px;
-  background-color: #0f3057;
-  display: flex;
-  justify-content: space-between;
-  position: sticky;
-`
-const Btn = styled.button`
-  color: white;
-  background-color: #0f3057;
-  font-weight: 700;
-  font-size: 1em;
-  border: none;
-  padding: 10px 10px;
-  margin: 6px 8px 0 0;
-`
-const Title = styled.h2`
-  color: white;
-  margin: .6% 0 0 14px;
-`
 const useStyles = makeStyles(theme => ({
+
+
+  root: {
+    flexGrow: 1,
+  },
+
+  nav: {
+    backgroundColor: "#0f3057",
+   
+  },
+
+  toolbar: {
+    width: "96%",
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between"
+  },
+
+  title: {
+    fontWeight: "600",
+  },
+
+  buttons: {
+    display: "flex",
+  },
 
   paper: {
     position: 'absolute',
@@ -46,8 +54,7 @@ const useStyles = makeStyles(theme => ({
     boxShadow: theme.shadows[5],
     padding: theme.spacing(4),
     outline: 'none',
-  }
-
+  },
 }));
 
 const Navbar = (props) => {
@@ -60,14 +67,24 @@ const Navbar = (props) => {
 
   return (
 
-    <Nav>
-      <Title>Learning Journal</Title>
-      <div className='nav-buttons'>
-        <Btn className='nav-button'>Home</Btn>
-        <Btn className='nav-button'>Profile</Btn>
-        <Btn onClick={handleOpen} className='nav-button'>Login</Btn>
-        <Btn onClick={props.clearToken} className='nav-button'>Logout</Btn>
-      </div>
+
+    <div className={classes.root}>
+      <AppBar className={classes.nav} position="fixed">
+        <Toolbar className={classes.toolbar}>
+          <Typography variant="h6" className={classes.title}>
+            Learning Journal
+          </Typography>
+          <div className={classes.buttons}>
+            {props.home? <Button color="inherit" onClick={props.homeToggle}>Profile</Button> :
+            <Button color="inherit" onClick={props.homeToggle}>Home</Button>}
+
+            {/* Token check Ternary for Login / Logout function */}
+            
+            <Button color="inherit" onClick={handleOpen}>Login</Button>
+            <Button color="inherit" onClick={props.clearToken} className='nav-button'>Logout</Button>
+          </div>
+        </Toolbar>
+      </AppBar>
       <Modal
         className={classes.modal}
         aria-labelledby="simple-modal-title"
@@ -79,7 +96,28 @@ const Navbar = (props) => {
           <Auth updateToken={props.updateToken} />
         </div>
       </Modal>
-    </Nav>
+    </div>
+
+    // <Nav>
+    //   <Title>Learning Journal</Title>
+    //   <div className='nav-buttons'>
+    //     <Btn className='nav-button'>Home</Btn>
+    //     <Btn className='nav-button'>Profile</Btn>
+    //     <Btn onClick={handleOpen} className='nav-button'>Login</Btn>
+    //     <Btn onClick={props.clearToken} className='nav-button'>Logout</Btn>
+    //   </div>
+    //   <Modal
+    //     className={classes.modal}
+    //     aria-labelledby="simple-modal-title"
+    //     aria-describedby="simple-modal-description"
+    //     open={open}
+    //     onClose={handleClose}
+    //   >
+    //     <div style={modalStyle} className={classes.paper}>
+    //       <Auth updateToken={props.updateToken} />
+    //     </div>
+    //   </Modal>
+    // </Nav>
   );
 };
 

@@ -36,7 +36,8 @@ const useStyles = makeStyles(() => ({
 }));
 
 const Signup = (props) => {
-  const [email, setEmail] = useState('')
+  const [userName, setUserName] = useState ('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const classes = useStyles();
@@ -44,9 +45,9 @@ const Signup = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetch(`http://localhost:3000/user/create`, {
+    fetch(`http://localhost:3000/user/register`, {
       method: 'POST',
-      body: JSON.stringify({ user: { email: email, password: password } }),
+      body: JSON.stringify({ email: email, userName: userName, password: password }),
       headers: new Headers({
         'Content-Type': 'application/json'
       })
@@ -62,9 +63,10 @@ const Signup = (props) => {
     <div>
       <h1>Sign Up</h1>
       <form onSubmit={handleSubmit}>
+        <TextField label="Username" variant="outlined" className={classes.input} onChange={(e) => setUserName(e.target.value)} name="userName" value={userName} />
         <TextField label="Email" variant="outlined" className={classes.input} type='email' onChange={(e) => setEmail(e.target.value)} name="email" value={email} />
         <TextField label="Password" variant="outlined" className={classes.input} type='password' onChange={(e) => setPassword(e.target.value)} name="password" value={password} />
-        <Button type="submit" className={classes.button}>Signup</Button>
+        <Button type="submit" className={classes.button}>Sign Up</Button>
         <Button className={classes.toggleBtn} onClick={props.toggle}>Click here to Login!</Button>
       </form>
     </div>

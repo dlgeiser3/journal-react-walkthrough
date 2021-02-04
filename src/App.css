@@ -4,8 +4,9 @@
 
 .App {
   text-align: center;
+  position: sticky;
   background-color: rgb(241, 245, 245);
-  height: 100vh;
+  background-size: auto;  
 }
 
 .App-header {

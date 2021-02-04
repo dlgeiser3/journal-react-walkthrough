@@ -1,14 +1,16 @@
 import './App.css';
 import React, {useState, useEffect} from 'react';
 
+
 import Navbar from './Components/Navbar/Navbar';
-import Post from './Components/Home/Post';
-import ToggleDisplay from './Components/Home/ToggleDisplay';
-import Display from './Components/Home/Display'
+import Home from './Components/Home/Home';
+import Profile from './Components/Profile/Profile';
+
 
 function App() {
 
   const [sessionToken, setSessionToken] = useState('');
+  const [home, setHome] = useState(true);
 
   useEffect(() => {
     if (localStorage.getItem('token')) {
@@ -27,13 +29,12 @@ function App() {
     console.log(sessionToken);
   };
 
-  
+  const homeToggle = () => setHome(!home);
+
   return (
     <div className="App">
-      <Navbar token={sessionToken} clearToken={clearToken} updateToken={updateToken}/>
-      <Post />
-      <ToggleDisplay />
-      <Display />
+      <Navbar homeToggle={homeToggle} home={home} token={sessionToken} clearToken={clearToken} updateToken={updateToken}/>
+      {home ? <Home /> : <Profile />}
     </div>
   );
 }
