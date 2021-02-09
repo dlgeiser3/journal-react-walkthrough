@@ -17,8 +17,19 @@ const useStyles = makeStyles(() => ({
     }
   },
 
+  formDiv:{
+    padding: "100px 10% 0",
+    display: "flex",
+    justifyContent: "flex-start"
+  },
+  
+  smInput: {
+    width: "20%",
+
+  },
+
   input: {
-    marginTop: "100px",
+    marginTop: "10px",
     width: "80%",
   }
 
@@ -26,12 +37,40 @@ const useStyles = makeStyles(() => ({
 
 const Post = (props) => {
 
-  
+  const [title, setTitle] = useState('');
+  const [date, setDate] = useState('');
+  const [entry, setEntry] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    fetch(`http://localhost:3000/journal/new`, {
+      method: 'POST',
+      body: JSON.stringify(
+        {
+          title: title,
+          date: date,
+          entry: entry
+        }
+      ),
+      headers: new Headers({
+        'Content-Type': 'application/json',
+        'Authorization': props.token
+      })
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      })
+  };
   const classes = useStyles();
 
   return (
     <Container>
       <form>
+        <div className={classes.formDiv}>
+        <TextField size="small" label="Title" className={classes.smInput} variant="outlined" />
+        <TextField size="small" className={classes.smInput} type="date" variant="outlined" />
+        </div>
         <TextField label="New Journal Entry" multiline rows="5" className={classes.input} variant="outlined" />
         <br />
         <Button type="submit" className={classes.button}>Post</Button>

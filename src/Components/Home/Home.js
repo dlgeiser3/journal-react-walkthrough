@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Post from './Post';
-import ToggleDisplay from './ToggleDisplay';
+import JournalGet from './JournalGet';
 import Display from './Display';
 
 
@@ -8,9 +8,9 @@ const Home = (props) => {
   
 
   return (
-    <div>
+    <div backgroundcolor="blue">
       <Post />
-      <ToggleDisplay />
+      <JournalGet />
       <Display />
     </div>
   )

@@ -72,7 +72,7 @@ const Navbar = (props) => {
       <AppBar className={classes.nav} position="fixed">
         <Toolbar className={classes.toolbar}>
           <Typography variant="h6" className={classes.title}>
-            Learning Journal
+            Eleven Journal
           </Typography>
           <div className={classes.buttons}>
             {props.home? <Button color="inherit" onClick={props.homeToggle}>Profile</Button> :

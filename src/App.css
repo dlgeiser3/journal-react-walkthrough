@@ -1,12 +1,14 @@
 *{
-  font-family: Verdana, sans-serif
+  font-family: Verdana, sans-serif;
 }
 
 .App {
   text-align: center;
-  position: sticky;
   background-color: rgb(241, 245, 245);
-  background-size: auto;  
+  min-height: 100vh;
+  /* position: sticky;
+  height: 120%;
+  background-color: rgb(241, 245, 245); */
 }
 
 .App-header {

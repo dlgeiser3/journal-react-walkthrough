@@ -54,6 +54,7 @@ const Signup = (props) => {
     }).then(
       (response) => response.json()
     ).then((data) => {
+      console.log(data)
       props.updateToken(data.sessionToken)
       // window.alert("You're signed up!")
     })

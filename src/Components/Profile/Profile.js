@@ -6,7 +6,8 @@ const useStyles = makeStyles(() => ({
   
   wrapper: {
     marginTop: 0,
-    paddingTop: "30px"
+    paddingTop: "30px",
+    minHeight: "100%"
   },
 
   username: {
